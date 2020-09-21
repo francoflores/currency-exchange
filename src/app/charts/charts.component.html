@@ -1,0 +1,15 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-content>
+    <div  style="height: 100%; width: 100%;">
+      <highcharts-chart  
+        [Highcharts]="Highcharts"
+        [options]="chartOptions" 
+        [(update)]="updateFlag"
+      ></highcharts-chart>
+    </div>
+    
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="end">
+    <button mat-raised-button color="primary" (click)="onDownloadPDF()"><mat-icon>save_alt</mat-icon> Download</button>
+  </mat-card-actions>
+</mat-card>

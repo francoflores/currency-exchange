@@ -1,0 +1,47 @@
+<div>
+  <div fxLayoutAlign="end center">
+    <button mat-mini-fab color="primary" (click)="onAddConversion()" >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <br/>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center"> Quantity </mat-header-cell>
+      <mat-cell *matCellDef="let element" fxLayoutAlign="center center"> {{element.quantity}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="code_from">
+      <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center"> Currency From </mat-header-cell>
+      <mat-cell *matCellDef="let element" fxLayoutAlign="center center"> {{element.code_from}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="code_to" >
+      <mat-header-cell *matHeaderCellDef fxFlex="40" fxLayoutAlign="center center"> Currency To </mat-header-cell>
+      <mat-cell *matCellDef="let element" fxFlex="40" fxLayoutAlign="center center">
+        <mat-form-field appearance="outline" fxFill>
+          <mat-select  [(value)]="element.code_to" (selectionChange)="onChange()">
+            <mat-option [disabled]="element.code_from == currency.code" *ngFor="let currency of currencies" [value]="currency.code">{{currency.symbol}} - {{currency.name}} - {{currency.code}} <span matSuffix><span class="flag-icon" [ngClass]="'flag-icon-'+getFlagSlug(currency.code)"></span></span></mat-option>
+          </mat-select>
+          <span matSuffix><span class="flag-icon" [ngClass]="'flag-icon-'+getFlagSlug(element.code_to)"></span></span>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="result">
+      <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center"> Result </mat-header-cell>
+      <mat-cell *matCellDef="let element" fxLayoutAlign="center center"> {{element.result | currency:'2':''}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

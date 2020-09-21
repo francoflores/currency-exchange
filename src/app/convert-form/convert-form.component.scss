@@ -1,0 +1,20 @@
+mat-card {
+  height: 100%;
+  max-height: 100%;
+
+  .currency {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    p {
+      font-size: large;
+      font-weight: bold;
+      font-size: x-large;
+  
+      label {
+        font-style: italic;
+        font-weight: 500;
+        font-size: medium;
+      }
+    }
+  }
+}

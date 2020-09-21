@@ -1,0 +1,30 @@
+<mat-card fxFlex class="mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>
+      Currency Convert
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="currencyForm" id="idCurrencyForm">
+      <div fxLayout="column" fxLayoutGap="10px grid">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="10px grid">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Quantity</mat-label>
+            <input matInput placeholder="Quantity" formControlName="quantity" (keyup)="onKeyUp()" autocomplete="off" >
+            <span matSuffix>{{currencyForm.get('currencyFrom').value}}</span>
+            <mat-hint>Put quantity to convert</mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Choose an option</mat-label>
+            <mat-select  [formControlName]="'currencyFrom'" (selectionChange)="onChange()">
+              <mat-option *ngFor="let currency of currencies" [value]="currency.code">{{currency.symbol}} - {{currency.name}} - {{currency.code}}</mat-option>
+            </mat-select>
+            <mat-hint>Select currency source</mat-hint>
+            <span matSuffix><span class="flag-icon" [ngClass]="'flag-icon-'+getFlagSlug(currencyForm.get('currencyFrom').value)"></span></span>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+    <app-convert-form-conversion-table (conversionsChanged)="onConversionsChanged($event)" ></app-convert-form-conversion-table>
+  </mat-card-content>
+</mat-card>
