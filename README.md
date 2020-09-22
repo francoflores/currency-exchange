@@ -4,6 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 This is a currency conversion app, when you can made conversion between the main currencies of the world. Also you can view the behavior of these currencies of last month in a line chart and donwload it as PDF file.
 
+## Demo.
+
+You can view a online demo https://franco-currency-exchange.web.app
+
+## Install dependencies
+
+Run `npm install`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
