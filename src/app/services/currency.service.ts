@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { environment } from 'src/environments/environment';
 import { Currency } from "../models/models";
 
 @Injectable({providedIn: 'root'})
@@ -11,7 +12,7 @@ export class CurrencyService {
   currenciesChanged = new Subject<{base:string, symbols:string}>();
   quantityChanged = new Subject<number>();
 
-  url: string = 'https://api.exchangeratesapi.io/';
+  url: string = environment.currency_api;
 
   currencyBaseChanged = new Subject<Currency>();
 
