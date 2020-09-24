@@ -36,10 +36,70 @@ export class CurrencyService {
       slug: 'eu'
     },
     {
-      name: "Libra",
+      name: "British Pound",
       symbol: "£",
       code: "GBP",
       slug: 'gb'
+    },
+    {
+      name: "Japanese Yen",
+      symbol: "¥",
+      code: "JPY",
+      slug: 'jp'
+    },
+    {
+      name: "Russian Ruble",
+      symbol: "руб",
+      code: "RUB",
+      slug: 'ru'
+    },
+    {
+      name: "Hong Kong Dollar",
+      symbol: "$",
+      code: "HKD",
+      slug: 'hk'
+    },
+    {
+      name: "Chinese Yuan",
+      symbol: "¥",
+      code: "CNY",
+      slug: 'cn'
+    },
+    {
+      name: "Mexican Peso",
+      symbol: "$",
+      code: "MXN",
+      slug: 'mx'
+    },
+    {
+      name: "Icelandic Króna",
+      symbol: "kr",
+      code: "ISK",
+      slug: 'is'
+    },
+    {
+      name: "Philippine Peso",
+      symbol: "₱",
+      code: "PHP",
+      slug: 'ph'
+    },
+    {
+      name: "Danish Krone",
+      symbol: "kr",
+      code: "DKK",
+      slug: 'dk'
+    },
+    {
+      name: "Hungarian Forint",
+      symbol: "Ft",
+      code: "HUF",
+      slug: 'hu'
+    },
+    {
+      name: "Czech Koruna",
+      symbol: "Kč",
+      code: "CZK",
+      slug: 'cz'
     }
   ]
 
