@@ -17,7 +17,7 @@ export class ConvertFormConversionTableComponent implements OnInit, AfterViewIni
 
   dataSource: MatTableDataSource<Conversion>;
   conversions: Array<Conversion> = [];
-  displayedColumns: string[] = ['quantity', 'code_from', 'code_to', 'result'];
+  displayedColumns: string[] = ['quantity', 'code_from', 'code_to', 'result', 'actions'];
   currencies: Array<Currency>;
   rates: any;
 
@@ -75,6 +75,14 @@ export class ConvertFormConversionTableComponent implements OnInit, AfterViewIni
 
     this.dataSource.data = this.conversions;
     
+  }
+
+  onRemoveConversion(index: number) {
+    if(index == 0) return;
+    this.conversions.splice(index, 1);
+    this.conversionsChanged.emit(this.conversions.map(conversion => conversion.code_to));
+
+    this.dataSource.data = this.conversions;
   }
 
   onChange(): void {
